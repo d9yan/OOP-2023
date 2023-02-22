@@ -8,7 +8,7 @@ public class Loops extends PApplet {
 
 	public void settings() {
 		size(1000, 1000);
-		//fullScreen(SPAN);
+		fullScreen(SPAN);
 	}
 
 	public void setup() {
@@ -24,7 +24,7 @@ public class Loops extends PApplet {
 	float off = 0;
 
 	public void draw() {
-		background(0);
+		background(140);
 		fill(255);
 		noStroke();
 
