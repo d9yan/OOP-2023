@@ -21,6 +21,18 @@ public class Main
         processing.core.PApplet.runSketch( a, new BugZap());
     }
 
+	public static void starMap()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new StarMap());
+    }
+
+	public static void audio1()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Audio1());
+    }
+
 	
 	public static void main(String[] args)
 	{
@@ -33,6 +45,10 @@ public class Main
 		/*helloProcessing();*/
 		/*loops();*/
 		/*bugZap();*/
+
+		starMap();
+		audio1();
+
 	}
-	
+
 }
