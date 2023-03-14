@@ -42,13 +42,118 @@ Resources
 - https://github.com/skooter500/OOP_Labtest1_2017_Starter
 - https://github.com/skooter500/OOP-LabTest1-2016
 
+# Week 7 - The Game of Life
+- [Recording of the class](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EQyeIpRQ3AxPsA27SVd5CbAB7DvWjpeVJqhUAcEnYXCl1g?e=lCuvXJ)
+- [Epic Conway's Game of Life](https://www.youtube.com/watch?v=C2vgICfQawE)
+- [3D Game of Life](https://www.youtube.com/watch?v=dQJ5aEsP6Fs)
+- [John Conway talks about the game of life](https://www.youtube.com/watch?v=FdMzngWchDk)
+- [The Dream of Life](https://www.youtube.com/watch?v=wU0PYcCsL6o)
+
+# Lab
+I fixed the bugs in the Game of Life code we wrote in the class today. They are in the game_of_life_fixed branch of the repo. To get the code we wrote today and new branch into your fork, run:
+
+```
+git checkout master
+git fetch upstream
+git pull upstream master
+```
+
+Create a branch for the lab:
+
+```
+git checkout -b lab7
+```
+
+Use the debugging tools in VS Code to track down the bug! 
+
+- F9 - Toggle a breakpoint
+- F10 - Step over
+- F11 - Step Into 
+- F5 - Start the debugger
+
+Interactive debuggers tools are essential tools for programmers.
+
+* If you want to cheat, [the solution is here](https://github.com/skooter500/OOP-2023/commit/0106cae8a3fe7b5855aa1ad977d4e6c4224c4c44). The important line is line 35 
+
+Your game of life should look like this (click the image for a video):
+
+[![YouTube](http://img.youtube.com/vi/SmH2r_ChmFY/0.jpg)](https://www.youtube.com/watch?v=SmH2r_ChmFY)
+
+Some extra things you can implement:
+
+- Increase size and change the size of the screen and see what effect this has on the simulation 
+- Press space to pause and resume the simulation
+- Press 1 to randomise the board again
+- Press 2 to clear the board
+- Press 3 to draw a cross shape and see how it evolves
+- Drag the mouse across the window to set cells at the mouse position to be alive.
+
+Some extra things you can implement that are not in the video
+
+- Draw a glider at the mouse position. This is starting pattern that will evolve a pattern that walks across the screen
+- Draw a Gosper Gun at the mouse position. This is a starting pattern that will spawn creatures indefinitely
+
+You can read more about these starting patterns and others in [this wikipedia article](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) and see examples in this video:
+
+[![YouTube](http://img.youtube.com/vi/HMYh4jKdtNU/0.jpg)](https://www.youtube.com/watch?v=HMYh4jKdtNU)
+
+If you want to learn more about cellular automata check out: 
+
+- [The Nature of Code](https://natureofcode.com/)
+- [A New Kind of Science](https://writings.stephenwolfram.com/2017/05/a-new-kind-of-science-a-15-year-view/)
+
+# Week 6 - Digital Audio 2 - Analyzing the FFT
+- [Recording of the class](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EaVOsq7ifNlNloBIg1uek9ABKkwOAbcNLygpO7U-g6zS6g?e=fW2KUb)
+
+## Tutorial
+- [Recording](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EfIyi8xt-mFMtFdbKTxaI0EBZOMb-LGuDfwtxDW1AX7_tA?e=wMQ9i0)
+
+## Lab
+
+Update your forks to get the code we wrote on Monday!
+
+When we take a frequency and get the note name for that frequency, this is called "spelling" the frequency. Here is some Java code for the frequencies of the notes in several octaves of the the D Major scale. For musicians in the class, you will know that D Major has 2 sharps. F# and C#, so the frequencies for the notes F and C are those for F# and C#
+
+```Java
+float[] frequencies = {293.66f, 329.63f, 369.99f, 392.00f, 440.00f, 493.88f, 554.37f, 587.33f
+			, 659.25f, 739.99f, 783.99f, 880.00f, 987.77f, 1108.73f, 1174.66f};
+	String[] spellings = {"D,", "E,", "F,", "G,", "A,", "B,", "C", "D", "E", "F", "G", "A", "B","c", "d", "e", "f", "g", "a", "b", "c'", "d'", "e'", "f'", "g'", "a'", "b'", "c''", "d''"};
+```
+-  Write a class called PitchSpeller that has the above 2 arrays as fields. It should have a method ```public String spell(float frequency)``` that takes a frequency as a parameter and returns the spelling which is *closest* to that frequency. Test your solution by adding code to the main method. For example:
+
+```Java
+PitchSpeller ps = new PitchSpeller();
+System.out.println(ps.spell(330));
+System.out.println(ps.spell(420));
+System.out.println(ps.spell(1980));
+```
+
+Should print:
+
+```
+E,
+A,
+b
+```
+
+You can use the ```Math.abs``` method in your solution to get the absolute value of a number.
+
+Now you can use the PitchSpeller class with the code we wrote on Monday and you will have made a simple transcription system.
+
+Here is a video of what your finished program might look like:
+
+[![YouTube](http://img.youtube.com/vi/bfLVzCD2UC0/0.jpg)](https://youtu.be/bfLVzCD2UC0)
+
+There is a file called scale.wav in the repo you can use to test your solution
+
 # Week 5 - Digital Audio 1
 <<<<<<< HEAD
 - [Recording of the class](https://tudublin-my.sharepoint.com/personal/bryan_duggan_tudublin_ie/_layouts/15/stream.aspx?id=%2Fpersonal%2Fbryan%5Fduggan%5Ftudublin%5Fie%2FDocuments%2FRecordings%2FOOP%2D20230220%5F110528%2DMeeting%20Recording%2Emp4&ga=1)
 =======
 - [Recording of the class](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/Ef00smEvputFlEtGJYTqleEBUMA-SFRxoxWUkPEnN34mPA?e=VfutXz)
 
-## Lab 
+## Tutorial
+- [Recording](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EWmC4bZXgFJOq8cDIQ1akmgBQhgtOkZn6FsxPABtcs8c2Q?e=OSwzeT)
 
 ### Lab
 ### Learning Outcomes
