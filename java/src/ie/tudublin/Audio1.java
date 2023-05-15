@@ -8,54 +8,73 @@ import processing.core.PApplet;
 
 public class Audio1 extends PApplet
 {
-
     Minim minim;
-    AudioInput ai;
     AudioPlayer ap;
+    AudioInput ai;
     AudioBuffer ab;
 
-	public void settings()
-	{
-		size(1024, 500);
+    int mode = 0;
+
+    float y = 0;
+    float smoothedY = 0;
+    float smoothedAmplitude = 0;
+
+    public void keyPressed() {
+		if (key >= '0' && key <= '9') {
+			mode = key - '0';
+		}
+		if (keyCode == ' ') {
+            if (ap.isPlaying()) {
+                ap.pause();
+            } else {
+                ap.rewind();
+                ap.play();
+            }
+        }
 	}
 
-    int frameSize = 1024;
+    public void settings()
+    {
+        size(1024, 1000, P3D);
+        //fullScreen(P3D, SPAN);
+    }
 
-	public void setup() {
-		colorMode(HSB);
-		background(0);
-
+    public void setup()
+    {
         minim = new Minim(this);
+        // Uncomment this to use the microphone
+        // ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
+        // ab = ai.mix; 
 
-        ai = minim.getLineIn(Minim.MONO, frameSize, 44100, 16);
-        ab = ai.mix;
-		
-		smooth();
-		
-	}
+        // And comment the next two lines out
+        ap = minim.loadFile("heroplanet.mp3", 1024);
+        ap.play();
+        ab = ap.mix;
+        colorMode(HSB);
 
-	
-	
-	public void draw()
-	{	
-		background(0);
-        stroke(255);
-        float average;
-        float sum;
-        float smoothedAmplitude;
-        float lerpedBuffer[];
-        int halfH[];
-        int mode;
+        y = height / 2;
+        smoothedY = y;        
+    }
 
-        float half = height / 2;
-        float cgap = 255 / (float)ab.size();
+    float off = 0;
 
-        float total = 0;
+    float lerpedBuffer[] = new float[1024];
+
+    public void draw()
+    {
+        //background(0);
+        float halfH = height / 2;
+        float average = 0;
+        float sum = 0;
+        off += 1;
+
+
+        // Calculate sum and average of the samples
+        // Also lerp each element of buffer;
         for(int i = 0 ; i < ab.size() ; i ++)
         {
-            total += abs(ab.get(i));
-            stroke(cgap * i, 255, 255);
-            line(i, half, i , half + ab.get(i) * half); 
+            sum += abs(ab.get(i));
+            lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
         }
         average= sum / (float) ab.size();
 
@@ -73,7 +92,7 @@ public class Audio1 extends PApplet
                     float c = map(i, 0, ab.size(), 0, 255);
                     stroke(c, 255, 255);
                     float f = lerpedBuffer[i] * halfH * 4.0f;
-                    line(i, halfH + f, i, halfH - f);                    
+                    line(halfH + f, i, halfH - f, i);                    
                 }
                 break;
         case 1:
@@ -104,11 +123,18 @@ public class Audio1 extends PApplet
 
 
         
-        float r = average * 200;
-        lerpedR = lerp(lerpedR, r, 0.1f);
+        // Other examples we made in the class
+        /*
+        stroke(255);
+        fill(100, 255, 255);        
+        
+        circle(width / 2, halfH, lerpedA * 100);
 
-        circle(100, 200, lerpedR);
-	}
+        circle(100, y, 50);
+        y += random(-10, 10);
+        smoothedY = lerp(smoothedY, y, 0.1f);        
+        circle(200, smoothedY, 50);
+        */
 
-    float lerpedR = 0;
+    }        
 }
