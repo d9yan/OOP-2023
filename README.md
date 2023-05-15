@@ -26,7 +26,7 @@ Resources
 
 - Week 5 - Teams Submission
 - 26 April - Lab Test 20% 
-- 25 April Assignment Submission - 30%
+- 3 May Assignment Submission and IN PERSON DEMOS - 30%
 - End of Year exam - 50%
 
 # Last years course
@@ -41,6 +41,14 @@ Resources
 - https://github.com/skooter500/OOP-2018-Lab-Test-2
 - https://github.com/skooter500/OOP_Labtest1_2017_Starter
 - https://github.com/skooter500/OOP-LabTest1-
+
+
+# Week 12 - Interfaces, AI Startups
+- [Recording of the class](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EWzQNU8QlQtBorLRT9VtmNgBnlW6SdHEFbRq6qWchsqKcw?e=TPElOp)
+- [Recording of the tutorial](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/ER9j5IePIvFJojTeOO1S7YoBHLwnXMNByin4Y1g0fcsHaA?e=bMgSTh)
+- [Lab Test](https://github.com/skooter500/OOP-2023-Starter)
+- [Solution](https://github.com/skooter500/OOP-2023-Test)
+
 
 # Week 11 - GameObjects & Polymorphism. Also trails!!
 - [Recording of the class](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/ERXADIzHDzFBofCMgjVIX3sBE7rKQIZEvXnDqh2m1tK2lQ?e=fOgsDF)
